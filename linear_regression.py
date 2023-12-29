@@ -3,6 +3,19 @@ import matplotlib.pyplot as plt
 
 
 def mse_cost(x, y, theta_0, theta_1):
+    """
+    Calculates the mean squared error (MSE) cost and the error for linear regression.
+
+    Parameters:
+    x (array-like): The input feature values.
+    y (array-like): The target values.
+    theta_0 (float): The intercept term.
+    theta_1 (float): The slope term.
+
+    Returns:
+    cost (float): The mean squared error cost.
+    error (array-like): The difference between the predicted and actual values.
+    """
     m = len(y)
     predicted = theta_0 + theta_1 * x
 
@@ -13,12 +26,41 @@ def mse_cost(x, y, theta_0, theta_1):
 
 
 def result(x, theta_0, theta_1):
+    """
+    Calculate the result of a linear regression model.
+
+    Parameters:
+    x (float): The input value.
+    theta_0 (float): The intercept of the linear regression model.
+    theta_1 (float): The slope of the linear regression model.
+
+    Returns:
+    float: The result of the linear regression model.
+    """
     return theta_0 + theta_1 * x
 
 
 def gradient_descent(
     x, y, theta_0, theta_1, alpha, num_iters, cost_fn=mse_cost
 ):
+    """
+    Perform gradient descent to optimize the parameters theta_0 and theta_1
+    for linear regression.
+
+    Parameters:
+    - x: Input features (array-like)
+    - y: Target values (array-like)
+    - theta_0: Initial value for parameter theta_0 (float)
+    - theta_1: Initial value for parameter theta_1 (float)
+    - alpha: Learning rate (float)
+    - num_iters: Number of iterations for gradient descent (int)
+    - cost_fn: Cost function to compute the cost and error (function)
+
+    Returns:
+    - theta_0: Optimized value for parameter theta_0 (float)
+    - theta_1: Optimized value for parameter theta_1 (float)
+    - cost_history: Array of cost values at each iteration (array-like)
+    """
     m = len(y)
     cost_history = np.zeros(num_iters)
 
