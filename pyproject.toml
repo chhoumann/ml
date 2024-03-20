@@ -6,11 +6,12 @@ authors = [
     { name = "Christian Bager Bach Houmann", email = "christian@bagerbach.com" }
 ]
 dependencies = [
-    "numpy>=1.26.4",
+    "numpy",
     "ipykernel>=6.29.3",
     "jupyter>=1.0.0",
     "matplotlib>=3.8.3",
     "graphviz>=0.20.2",
+    "torch==2.2.1+cu118",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -22,6 +23,10 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = []
+
+[[tool.rye.sources]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
 
 [tool.hatch.metadata]
 allow-direct-references = true
