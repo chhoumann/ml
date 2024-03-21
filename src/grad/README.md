@@ -2,6 +2,8 @@
 
 This folder follows: [The spelled-out intro to neural networks and backpropagation: building micrograd by Andrej Karpathy](https://www.youtube.com/watch?v=VMj-3S1tku0)
 
+Would also like to try my hand at porting to CUDA: https://github.com/mlecauchois/micrograd-cuda/
+
 ## Notes
 
 We're building a small automatic gradient (autograd) engine.
