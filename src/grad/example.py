@@ -1,4 +1,5 @@
 from typing import List
+
 from grad.engine import Value
 from grad.nn import MLP
 
@@ -36,7 +37,7 @@ def main():
     mlp = MLP(3, [4, 4, 1])
     gradient_descent(mlp, n_epochs=1000, learning_rate=0.1)
 
-    y_pred: List[Value] = [mlp(x) for x in xs] # type: ignore
+    y_pred: List[Value] = [mlp(x) for x in xs]  # type: ignore
 
     print("Final predictions:", [y_pred.data for y_pred in y_pred])
 

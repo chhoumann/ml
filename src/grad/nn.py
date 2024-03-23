@@ -3,10 +3,11 @@ from typing import List
 
 from grad.engine import Value
 
+
 class Module:
     def parameters(self):
         return []
-    
+
     def zero_grad(self):
         for p in self.parameters():
             p.grad = 0
