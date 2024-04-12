@@ -12,6 +12,7 @@ dependencies = [
     "matplotlib>=3.8.3",
     "graphviz>=0.20.2",
     "torch==2.2.1+cu118",
+    "torchvision==0.17.2+cu118",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
