@@ -12,6 +12,8 @@ dependencies = [
     "matplotlib>=3.8.3",
     "graphviz>=0.20.2",
     "torch==2.2.1+cu118",
+    "keras>=3.2.1",
+    "scikit-learn>=1.4.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
