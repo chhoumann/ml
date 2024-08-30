@@ -14,6 +14,10 @@ dependencies = [
     "torch==2.2.1+cu118",
     "keras>=3.2.1",
     "scikit-learn>=1.4.2",
+    "pandas>=2.2.2",
+    "tensorflow>=2.17.0",
+    "tqdm>=4.64.1",
+    "torchvision==0.19.0+cu118",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
