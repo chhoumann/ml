@@ -2,7 +2,7 @@
 # use `rye lock` or `rye sync` to update this lockfile
 #
 # last locked with the following flags:
-#   pre: false
+#   pre: true
 #   features: []
 #   all-features: false
 #   with-sources: false
@@ -11,9 +11,15 @@
 
 -e file:.
 absl-py==2.1.0
+    # via chex
     # via keras
+    # via mujoco
+    # via optax
+    # via orbax-checkpoint
     # via tensorboard
     # via tensorflow
+ale-py==0.9.1
+    # via gymnasium
 anyio==4.3.0
     # via httpx
     # via jupyter-server
@@ -38,14 +44,21 @@ beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.1.0
     # via nbconvert
+box2d-py==2.3.5
+    # via gymnasium
 certifi==2022.12.7
     # via httpcore
     # via httpx
     # via requests
 cffi==1.16.0
     # via argon2-cffi-bindings
+    # via mujoco-py
 charset-normalizer==2.1.1
     # via requests
+chex==0.1.86
+    # via optax
+cloudpickle==3.0.0
+    # via gymnasium
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
@@ -53,28 +66,46 @@ contourpy==1.2.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
+cython==0.29.37
+    # via gymnasium
+    # via mujoco-py
 debugpy==1.8.1
     # via ipykernel
-decorator==5.1.1
+decorator==4.4.2
     # via ipython
+    # via moviepy
 defusedxml==0.7.1
     # via nbconvert
+etils==1.9.3
+    # via mujoco
+    # via optax
+    # via orbax-checkpoint
 executing==2.0.1
     # via stack-data
+farama-notifications==0.0.4
+    # via gymnasium
+fasteners==0.19
+    # via mujoco-py
 fastjsonschema==2.19.1
     # via nbformat
 filelock==3.9.0
     # via torch
 flatbuffers==24.3.25
     # via tensorflow
+flax==0.9.0
+    # via gymnasium
 fonttools==4.50.0
     # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 fsspec==2023.4.0
+    # via etils
     # via torch
 gast==0.6.0
     # via tensorflow
+glfw==2.7.0
+    # via mujoco
+    # via mujoco-py
 google-pasta==0.2.0
     # via tensorflow
 graphviz==0.20.2
@@ -82,6 +113,8 @@ graphviz==0.20.2
 grpcio==1.65.5
     # via tensorboard
     # via tensorflow
+gymnasium==1.0.0a2
+    # via ml
 h11==0.14.0
     # via httpcore
 h5py==3.11.0
@@ -91,11 +124,21 @@ httpcore==1.0.4
     # via httpx
 httpx==0.27.0
     # via jupyterlab
+humanize==4.10.0
+    # via orbax-checkpoint
 idna==3.4
     # via anyio
     # via httpx
     # via jsonschema
     # via requests
+imageio==2.35.1
+    # via gymnasium
+    # via moviepy
+    # via mujoco-py
+imageio-ffmpeg==0.5.1
+    # via moviepy
+importlib-resources==6.4.4
+    # via etils
 ipykernel==6.29.3
     # via jupyter
     # via jupyter-console
@@ -110,6 +153,18 @@ ipywidgets==8.1.2
     # via jupyter
 isoduration==20.11.0
     # via jsonschema
+jax==0.4.31
+    # via chex
+    # via flax
+    # via gymnasium
+    # via optax
+    # via orbax-checkpoint
+jaxlib==0.4.31
+    # via chex
+    # via gymnasium
+    # via jax
+    # via optax
+    # via orbax-checkpoint
 jedi==0.19.1
     # via ipython
 jinja2==3.1.2
@@ -187,6 +242,7 @@ markupsafe==2.1.3
     # via nbconvert
     # via werkzeug
 matplotlib==3.8.3
+    # via gymnasium
     # via ml
 matplotlib-inline==0.1.6
     # via ipykernel
@@ -196,10 +252,22 @@ mdurl==0.1.2
 mistune==3.0.2
     # via nbconvert
 ml-dtypes==0.4.0
+    # via jax
+    # via jaxlib
     # via keras
     # via tensorflow
+    # via tensorstore
+moviepy==2.0.0.dev2
+    # via gymnasium
 mpmath==1.3.0
     # via sympy
+msgpack==1.1.0rc2
+    # via flax
+    # via orbax-checkpoint
+mujoco==3.2.2
+    # via gymnasium
+mujoco-py==2.1.2.14
+    # via gymnasium
 namex==0.0.7
     # via keras
 nbclient==0.10.0
@@ -213,6 +281,7 @@ nbformat==5.10.3
     # via nbconvert
 nest-asyncio==1.6.0
     # via ipykernel
+    # via orbax-checkpoint
 networkx==3.2.1
     # via torch
 notebook==7.1.2
@@ -221,18 +290,32 @@ notebook-shim==0.2.4
     # via jupyterlab
     # via notebook
 numpy==1.26.3
+    # via ale-py
+    # via chex
     # via contourpy
+    # via flax
+    # via gymnasium
     # via h5py
+    # via imageio
+    # via jax
+    # via jaxlib
     # via keras
     # via matplotlib
     # via ml
     # via ml-dtypes
+    # via moviepy
+    # via mujoco
+    # via mujoco-py
+    # via opencv-python
     # via opt-einsum
+    # via optax
+    # via orbax-checkpoint
     # via pandas
     # via scikit-learn
     # via scipy
     # via tensorboard
     # via tensorflow
+    # via tensorstore
 nvidia-cublas-cu11==11.11.3.6
     # via nvidia-cudnn-cu11
     # via nvidia-cusolver-cu11
@@ -257,10 +340,17 @@ nvidia-nccl-cu11==2.19.3
     # via torch
 nvidia-nvtx-cu11==11.8.86
     # via torch
+opencv-python==4.10.0.84
+    # via gymnasium
 opt-einsum==3.3.0
+    # via jax
     # via tensorflow
+optax==0.2.3
+    # via flax
 optree==0.11.0
     # via keras
+orbax-checkpoint==0.6.1
+    # via flax
 overrides==7.7.0
     # via jupyter-server
 packaging==22.0
@@ -283,15 +373,19 @@ parso==0.8.3
 pexpect==4.9.0
     # via ipython
 pillow==10.2.0
+    # via imageio
     # via matplotlib
 platformdirs==4.2.0
     # via jupyter-core
+proglog==0.1.10
+    # via moviepy
 prometheus-client==0.20.0
     # via jupyter-server
 prompt-toolkit==3.0.43
     # via ipython
     # via jupyter-console
 protobuf==4.25.4
+    # via orbax-checkpoint
     # via tensorboard
     # via tensorflow
 psutil==5.9.8
@@ -303,12 +397,16 @@ pure-eval==0.2.2
     # via stack-data
 pycparser==2.21
     # via cffi
+pygame==2.6.0
+    # via gymnasium
 pygments==2.17.2
     # via ipython
     # via jupyter-console
     # via nbconvert
     # via qtconsole
     # via rich
+pyopengl==3.1.7
+    # via mujoco
 pyparsing==3.1.2
     # via matplotlib
 python-dateutil==2.9.0.post0
@@ -321,7 +419,9 @@ python-json-logger==2.0.7
 pytz==2024.1
     # via pandas
 pyyaml==6.0.1
+    # via flax
     # via jupyter-events
+    # via orbax-checkpoint
 pyzmq==25.1.2
     # via ipykernel
     # via jupyter-client
@@ -338,6 +438,7 @@ referencing==0.34.0
     # via jupyter-events
 requests==2.28.1
     # via jupyterlab-server
+    # via moviepy
     # via tensorflow
 rfc3339-validator==0.1.4
     # via jsonschema
@@ -346,6 +447,7 @@ rfc3986-validator==0.1.1
     # via jsonschema
     # via jupyter-events
 rich==13.7.1
+    # via flax
     # via keras
 rpds-py==0.18.0
     # via jsonschema
@@ -353,10 +455,14 @@ rpds-py==0.18.0
 scikit-learn==1.4.2
     # via ml
 scipy==1.13.0
+    # via jax
+    # via jaxlib
     # via scikit-learn
 send2trash==1.8.2
     # via jupyter-server
 setuptools==70.0.0
+    # via chex
+    # via imageio-ffmpeg
     # via tensorboard
     # via tensorflow
 six==1.16.0
@@ -375,6 +481,8 @@ soupsieve==2.5
     # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
+swig==4.2.1
+    # via gymnasium
 sympy==1.12
     # via torch
 tensorboard==2.17.1
@@ -383,6 +491,9 @@ tensorboard-data-server==0.7.2
     # via tensorboard
 tensorflow==2.17.0
     # via ml
+tensorstore==0.1.64
+    # via flax
+    # via orbax-checkpoint
 termcolor==2.4.0
     # via tensorflow
 terminado==0.18.1
@@ -392,7 +503,10 @@ threadpoolctl==3.4.0
     # via scikit-learn
 tinycss2==1.2.1
     # via nbconvert
+toolz==0.12.1
+    # via chex
 torch==2.2.1+cu118
+    # via gymnasium
     # via ml
 tornado==6.4
     # via ipykernel
@@ -403,6 +517,7 @@ tornado==6.4
     # via terminado
 tqdm==4.64.1
     # via ml
+    # via proglog
 traitlets==5.14.2
     # via comm
     # via ipykernel
@@ -422,7 +537,12 @@ traitlets==5.14.2
 types-python-dateutil==2.9.0.20240316
     # via arrow
 typing-extensions==4.8.0
+    # via chex
+    # via etils
+    # via flax
+    # via gymnasium
     # via optree
+    # via orbax-checkpoint
     # via tensorflow
     # via torch
 tzdata==2024.1
@@ -448,3 +568,5 @@ widgetsnbextension==4.0.10
     # via ipywidgets
 wrapt==1.16.0
     # via tensorflow
+zipp==3.20.1
+    # via etils
