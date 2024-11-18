@@ -11,7 +11,6 @@ dependencies = [
     "jupyter>=1.0.0",
     "matplotlib>=3.8.3",
     "graphviz>=0.20.2",
-    "torch==2.2.1+cu118",
     "keras>=3.2.1",
     "scikit-learn>=1.4.2",
     "pandas>=2.2.2",
@@ -20,19 +19,15 @@ dependencies = [
     "gymnasium[all]>=0.29.1",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.rye]
+[tool.uv]
 managed = true
 dev-dependencies = []
-
-[[tool.rye.sources]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu118"
 
 [tool.hatch.metadata]
 allow-direct-references = true
