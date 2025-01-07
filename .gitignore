@@ -32,3 +32,8 @@ data/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+src/build_a_large_language_model_from_scratch/gpt2/124M
+src/build_a_large_language_model_from_scratch/gpt_download.py
+
+*.pth
