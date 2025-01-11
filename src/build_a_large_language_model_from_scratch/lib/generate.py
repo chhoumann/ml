@@ -1,3 +1,5 @@
+from typing import Optional
+
 import torch
 
 
@@ -30,3 +32,44 @@ def text_to_token_ids(text: str, tokenizer):
 def token_ids_to_text(token_ids, tokenizer):
     flat = token_ids.squeeze(0)
     return tokenizer.decode(flat.tolist())
+
+
+def generate(
+    model,
+    idx,
+    max_new_tokens: int,
+    context_size: int,
+    temperature=0.0,
+    top_k: Optional[int] = None,
+    eos_id=None,
+):
+    for _ in range(max_new_tokens):
+        idx_cond = idx[:, -context_size:]
+        with torch.no_grad():
+            logits = model(idx_cond)
+
+        # Get last token in current sequence
+        logits = logits[:, -1, :]
+        # top-k sampling
+        if top_k is not None:
+            top_logits, _ = torch.topk(logits, top_k)
+            min_val = top_logits[:, -1]
+            logits = torch.where(
+                condition=logits < min_val,
+                input=torch.tensor(float("-inf")).to(logits.device),
+                other=logits,
+            )
+        if temperature > 0.0:
+            # temperature scaling
+            logits = logits / temperature
+            probs = torch.softmax(logits, dim=-1)
+            idx_next = torch.multinomial(probs, num_samples=1)
+        else:
+            # greedy decoding
+            idx_next = torch.argmax(logits, dim=-1, keepdim=True)
+        # check if we've reached the end
+        if idx_next == eos_id:
+            break
+        # append generated token to current sequence for further generation
+        idx = torch.cat((idx, idx_next), dim=1)
+    return idx
