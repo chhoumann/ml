@@ -1,0 +1,4 @@
+data/Images
+data/captions.txt
+vocab.pkl
+checkpoints/
