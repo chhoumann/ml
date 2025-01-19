@@ -21,7 +21,6 @@ env/
 # Data and media files
 *.png
 *.csv
-data/
 
 # Jupyter Notebook
 .ipynb_checkpoints/
